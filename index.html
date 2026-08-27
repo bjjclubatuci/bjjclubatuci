@@ -917,7 +917,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.carousel-btn.prev').addEventListener('click', () => { goTo(index - 1); resetAutoplay(); });
   document.querySelector('.carousel-btn.next').addEventListener('click', () => { goTo(index + 1); resetAutoplay(); });
 
-  function startAutoplay(){ if (prefersReduced) return; autoplayId = setInterval(() => goTo(index + 1), 5000); }
+  function startAutoplay(){ if (prefersReduced) return; autoplayId = setInterval(() => goTo(index + 1), 15000); }
   function resetAutoplay(){ clearInterval(autoplayId); startAutoplay(); }
   startAutoplay();
   carouselEl.addEventListener('mouseenter', () => clearInterval(autoplayId));
