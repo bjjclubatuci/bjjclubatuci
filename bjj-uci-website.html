@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brazilian Jiu-Jitsu Club at UCI</title>
+<meta name="description" content="Official home of the Brazilian Jiu-Jitsu Club at UCI. All skill levels welcome — come roll with us.">
+
+<!--
+  ============================================================
+  BJJ AT UCI — CLUB WEBSITE (v3 — light / classic academy theme)
+  ============================================================
+  HOW TO CUSTOMIZE THIS FILE (do a Find/Ctrl+F for these tags):
+
+  1. LOGO — search for:  REPLACE WITH LOGO
+     Swap the placeholder <span class="logo-mark">Logo</span> in the nav for:
+       <img src="your-logo.png" alt="BJJ at UCI logo" class="logo-mark">
+     Recommended size: square, at least 120x120px (transparent PNG/SVG works best).
+
+  2. LINKS — search for:  TODO: LINK
+     Every nav tab and quick-link card has a placeholder href="#".
+     Replace the # with your real URL (Squarespace, Instagram, shop, etc).
+
+  3. PHOTOS — search for:  REPLACE WITH PHOTO
+     Swap the placeholder <div class="ph-media">...</div> block for:
+       <img src="your-photo.jpg" alt="Describe the photo" class="ph-media">
+     Recommended photo size: 1600x900 or any 16:9 landscape image.
+     Note: the photo gallery now sits at the top of the page, right under the
+     nav, with no section title — it flows straight into the video row and hero.
+
+  4. VIDEOS — search for:  REPLACE WITH VIDEO
+     Swap the placeholder <div class="video-media">...</div> block for:
+       <video class="video-media" controls playsinline poster="thumb.jpg">
+         <source src="your-video.mp4" type="video/mp4">
+       </video>
+     Recommended video size: 1080x1920 or any 9:16 vertical clip.
+
+  5. ANNOUNCEMENT BAR — search for:  [ Add
+     Small text bar at the very top of the page (class alerts, open mat, etc).
+     Edit or delete the <div class="ticker"> block entirely if you don't need it.
+
+  6. COLORS / FONTS — all defined once at the top of <style> under :root.
+     Change --red / --brass / --bg there to re-theme the entire site.
+     Backgrounds now lean white / off-white throughout; --red is used only
+     for small text and border accents, not large fills.
+
+  7. COPY — section text is generic on purpose (no invented stats/history).
+     Search for [ ] brackets for spots you may want to personalize further.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* ---- color tokens — light, classic academy palette (whites / off-whites) ---- */
+    --bg:        #FDFCFA;
+    --bg-alt:    #F3F1EC;
+    --bg-panel:  #FFFFFF;
+    --line:      rgba(27,23,18,0.13);
+    --line-strong: rgba(27,23,18,0.22);
+    --ink:       #1B1712;
+    --ink-soft:  #5C564C;
+    --ink-faint: #8A8377;
+    --red:       #8C1F2B;
+    --red-bright:#A6273A;
+    --brass:     #9C7B3F;
+    --brass-soft:#C7AD79;
+
+    /* ---- type tokens ---- */
+    --font-display: 'Bitter', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:var(--font-body); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img, svg, video{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+  ul{ list-style:none; }
+  .container{ max-width:1180px; margin:0 auto; padding:0 24px; }
+
+  :focus-visible{ outline:2px solid var(--red); outline-offset:3px; border-radius:2px; }
+
+  .icon{ width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; flex:0 0 auto; }
+  .icon-lg{ width:32px; height:32px; }
+  .icon-fill{ fill:currentColor; stroke:none; }
+
+  h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; line-height:1.05; letter-spacing:-.01em; }
+
+  .eyebrow{
+    font-family:var(--font-body); font-size:12px; font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--red);
+    display:inline-flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--brass); flex:0 0 auto; }
+
+  .section{ padding:92px 0; }
+  .gallery-top{ padding-top:40px; }
+  .video-top{ padding-bottom:40px; }
+  .section-head{ max-width:640px; margin:0 auto 48px; text-align:center; }
+  .section-head h2{ font-size:clamp(2rem,4.4vw,3.1rem); margin-bottom:14px; }
+  .section-head p{ color:var(--ink-soft); font-size:1.03rem; max-width:56ch; margin:0 auto; }
+
+  /* ---- crest divider (signature motif) ---- */
+  .crest-divider{ display:flex; align-items:center; gap:18px; max-width:1180px; margin:0 auto; padding:0 24px; }
+  .crest-divider .line{ flex:1; height:1px; background:var(--line); }
+  .crest-divider .badge{
+    width:40px; height:40px; border-radius:50%; border:1px solid var(--line-strong);
+    background:var(--bg-panel); display:flex; align-items:center; justify-content:center; color:var(--brass);
+  }
+
+  /* ================= ANNOUNCEMENT TICKER ================= */
+  .ticker{
+    background:var(--bg-alt); color:var(--ink);
+    font-size:12.5px; letter-spacing:.04em;
+    display:flex; align-items:center; justify-content:center; gap:16px;
+    padding:10px 24px; text-align:center; position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  .ticker span{ opacity:.85; }
+  .ticker .ticker-close{ position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--ink); opacity:.6; width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
+  .ticker .ticker-close:hover{ opacity:1; background:rgba(27,23,18,.08); }
+  .ticker.hidden{ display:none; }
+
+  /* ================= NAV ================= */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,243,238,.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line); transition:border-color .3s, background .3s, box-shadow .3s;
+  }
+  .nav.scrolled{ background:rgba(245,243,238,.97); box-shadow:0 1px 0 var(--line-strong); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1180px; margin:0 auto; position:relative; }
+  .brand{ display:flex; align-items:center; gap:11px; font-family:var(--font-display); font-size:1.35rem; letter-spacing:.01em; }
+  .brand .crest-mark{ color:var(--red); }
+  .brand em{ font-style:normal; color:var(--red); }
+
+  /* ---- LOGO PLACEHOLDER ----
+     Swap the .logo-mark span below for your real logo:
+       <img src="your-logo.png" alt="BJJ at UCI logo" class="logo-mark">
+     Recommended size: square, at least 120x120px (transparent PNG/SVG works best). */
+  .logo-mark{
+    width:38px; height:38px; border-radius:8px; flex:0 0 auto;
+    border:1.5px dashed var(--line-strong); background:var(--bg-panel);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-body); font-size:9px; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-faint); text-align:center; line-height:1.2;
+  }
+
+  .nav-links{ display:flex; align-items:center; gap:4px; }
+  .nav-link{
+    font-family:var(--font-body); font-size:13px; font-weight:500; letter-spacing:.03em;
+    padding:10px 15px; position:relative; color:var(--ink-soft); white-space:nowrap;
+  }
+  .nav-link:hover{ color:var(--ink); }
+  .nav-link::after{
+    content:''; position:absolute; left:15px; right:15px; bottom:5px; height:1.5px;
+    background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .25s;
+  }
+  .nav-link:hover::after{ transform:scaleX(1); }
+
+  .nav-cta{ margin-left:10px; }
+
+  .nav-toggle{ display:none; width:40px; height:40px; align-items:center; justify-content:center; color:var(--ink); }
+
+  @media (max-width:880px){
+    .nav-links{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:var(--bg); border-bottom:1px solid var(--line);
+      padding:8px 24px 18px;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-link{ padding:14px 4px; border-bottom:1px solid var(--line); }
+    .nav-link::after{ display:none; }
+    .nav-cta{ margin:14px 4px 0; display:inline-flex; }
+    .nav-toggle{ display:flex; }
+  }
+
+  /* ================= BUTTONS ================= */
+  .btn{
+    display:inline-flex; align-items:center; gap:9px; padding:14px 25px; border-radius:3px;
+    font-family:var(--font-body); font-size:12.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--bg-panel); color:var(--red); border-color:var(--red); }
+  .btn-primary:hover{ background:var(--bg-alt); border-color:var(--red-bright); color:var(--red-bright); transform:translateY(-2px); }
+  .btn-ghost{ border-color:var(--line-strong); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--ink); background:var(--bg-panel); transform:translateY(-2px); }
+  .btn-sm{ padding:10px 17px; font-size:11.5px; }
+
+  /* ================= HERO ================= */
+  .hero{ position:relative; padding:100px 24px 96px; overflow:hidden; background:var(--bg); }
+  .hero-crest-bg{
+    position:absolute; top:50%; right:-6%; width:640px; height:640px; transform:translateY(-50%);
+    color:var(--line-strong); opacity:.5; pointer-events:none;
+  }
+  .hero-inner{ max-width:1180px; margin:0 auto; position:relative; z-index:1; text-align:center; display:flex; flex-direction:column; align-items:center; }
+  .hero h1{ font-size:clamp(2.9rem,7.4vw,5.6rem); max-width:16ch; }
+  .hero h1 em{ font-style:normal; color:var(--red); }
+  .hero .lede{ font-family:var(--font-body); font-size:1.1rem; color:var(--ink-soft); max-width:54ch; margin:26px auto 38px; line-height:1.75; }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+
+  /* ================= PHOTO CAROUSEL ================= */
+  .carousel{ position:relative; border-radius:6px; overflow:hidden; border:1px solid var(--line); background:var(--bg-panel); box-shadow:0 12px 32px rgba(27,23,18,.06); }
+  .carousel-viewport{ aspect-ratio:16/9; overflow:hidden; position:relative; }
+  .carousel-track{ display:flex; height:100%; transition:transform .6s cubic-bezier(.65,0,.35,1); will-change:transform; }
+  .slide{ min-width:100%; height:100%; position:relative; }
+
+  .ph-media{
+    width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
+    color:var(--ink-faint);
+    background-image:radial-gradient(circle at 1px 1px, rgba(27,23,18,.07) 1px, transparent 0);
+    background-size:18px 18px;
+  }
+  .ph-a{ background-color:#EFEBE0; }
+  .ph-b{ background-color:#EDE7DC; }
+  .ph-c{ background-color:#F1EEE5; }
+  .ph-label{ font-family:var(--font-body); font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; }
+
+  .carousel-btn{
+    position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border-radius:50%;
+    background:rgba(245,243,238,.85); border:1px solid var(--line-strong); display:flex; align-items:center; justify-content:center;
+    color:var(--ink); backdrop-filter:blur(4px); transition:background .2s, border-color .2s, color .2s; z-index:2;
+  }
+  .carousel-btn:hover{ background:var(--bg-panel); border-color:var(--red); color:var(--red); }
+  .carousel-btn.prev{ left:16px; }
+  .carousel-btn.next{ right:16px; }
+
+  .carousel-dots{ display:flex; gap:8px; justify-content:center; margin-top:22px; }
+  .dot{ width:22px; height:3px; border-radius:2px; background:var(--line-strong); transition:background .2s, width .2s; }
+  .dot.active{ background:var(--brass); width:32px; }
+
+  /* ================= VIDEO ROW ================= */
+  .video-row{
+    display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding:4px 4px 6px; scrollbar-width:none;
+  }
+  .video-row::-webkit-scrollbar{ display:none; }
+  .video-card{
+    flex:0 0 auto; width:clamp(160px,19vw,235px); aspect-ratio:9/16; scroll-snap-align:start;
+    border-radius:6px; overflow:hidden; border:1px solid var(--line); background:var(--bg-panel); position:relative;
+    box-shadow:0 10px 28px rgba(27,23,18,.05);
+  }
+  .video-media{
+    width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+    color:var(--ink-faint);
+    background-image:radial-gradient(circle at 1px 1px, rgba(27,23,18,.07) 1px, transparent 0);
+    background-size:16px 16px;
+  }
+  .video-card:nth-child(3n+1) .video-media{ background-color:#F1EEE5; }
+  .video-card:nth-child(3n+2) .video-media{ background-color:#EFEBE0; }
+  .video-card:nth-child(3n+3) .video-media{ background-color:#EDE7DC; }
+  .video-play-ring{
+    width:54px; height:54px; border-radius:50%; border:1.5px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .video-row-controls{ display:flex; justify-content:center; gap:10px; margin-top:22px; }
+  .carousel-btn.static{ position:static; transform:none; }
+
+  /* ================= ABOUT ================= */
+  .about-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:start; text-align:center; }
+  .about-copy p{ color:var(--ink-soft); margin:0 auto 18px; max-width:60ch; line-height:1.8; }
+  .about-copy p:last-child{ margin-bottom:0; }
+  .about-panel{ background:var(--bg-panel); border:1px solid var(--line); border-radius:6px; padding:36px; box-shadow:0 12px 32px rgba(27,23,18,.05); }
+  .about-panel h3{ font-size:1.5rem; margin-bottom:22px; }
+  .about-list{ display:flex; flex-direction:column; gap:20px; align-items:center; }
+  .about-list li{ display:flex; flex-direction:column; gap:8px; align-items:center; color:var(--ink-soft); line-height:1.65; text-align:center; }
+  .li-mark{ width:8px; height:8px; flex:0 0 auto; background:var(--brass); transform:rotate(45deg); }
+
+  @media (max-width:880px){ .about-grid{ grid-template-columns:1fr; } }
+
+  /* ================= QUICK LINKS ================= */
+  .quick-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+  .quick-card{
+    padding:26px 22px; border:1px solid var(--line); border-radius:6px; background:var(--bg-panel);
+    display:flex; flex-direction:column; align-items:center; gap:30px; justify-content:space-between; min-height:150px;
+    text-align:center; transition:transform .2s, border-color .2s, box-shadow .2s;
+  }
+  .quick-card:hover{ transform:translateY(-4px); border-color:var(--red); box-shadow:0 14px 30px rgba(27,23,18,.08); }
+  .quick-card .qc-top{ display:flex; justify-content:center; align-items:center; gap:10px; position:relative; width:100%; color:var(--ink-faint); }
+  .quick-card .qc-arrow{ position:absolute; right:0; }
+  .quick-card .qc-num{ font-family:var(--font-display); font-size:13px; letter-spacing:.03em; }
+  .quick-card h4{ font-size:1.4rem; letter-spacing:0; }
+  .quick-card:hover .qc-arrow{ color:var(--red); transform:translate(2px,-2px); }
+  .qc-arrow{ transition:transform .2s, color .2s; }
+
+  @media (max-width:960px){ .quick-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:640px){ .quick-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ================= FOOTER ================= */
+  .footer{ border-top:1px solid var(--line); background:var(--bg-alt); padding:64px 24px 28px; }
+  .footer-inner{ max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; gap:48px; justify-content:center; text-align:center; }
+  .footer-brand{ max-width:300px; display:flex; flex-direction:column; align-items:center; }
+  .footer-brand p{ color:var(--ink-soft); font-size:.92rem; line-height:1.7; margin-top:14px; }
+  .social-row{ display:flex; gap:12px; margin-top:22px; justify-content:center; }
+  .social-btn{
+    width:38px; height:38px; border-radius:50%; border:1px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center; color:var(--ink-soft); transition:color .2s, border-color .2s, background .2s;
+  }
+  .social-btn:hover{ color:var(--red); border-color:var(--red); background:var(--bg-panel); }
+
+  .footer-col h5{
+    font-family:var(--font-body); font-size:11.5px; font-weight:600; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:18px;
+  }
+  .footer-col ul{ display:flex; flex-direction:column; gap:11px; align-items:center; }
+  .footer-col a{ color:var(--ink-soft); font-size:.94rem; }
+  .footer-col a:hover{ color:var(--red); }
+
+  .footer-bottom{
+    max-width:1180px; margin:44px auto 0; padding-top:22px; border-top:1px solid var(--line);
+    display:flex; justify-content:center; flex-wrap:wrap; gap:10px 24px; text-align:center;
+    font-family:var(--font-body); font-size:11.5px; color:var(--ink-faint);
+  }
+
+  /* ---- reveal-on-scroll ---- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .carousel-track{ transition:none; }
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ============ SVG ICON SPRITE (reused via <use>) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-crest" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9.4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="12" cy="12" r="6.3" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M12 7v10M8.3 9.3l7.4 5.4M15.7 9.3l-7.4 5.4"/>
+    </symbol>
+    <symbol id="icon-camera" viewBox="0 0 24 24">
+      <path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+      <circle cx="12" cy="13" r="3.4"/>
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9.2"/>
+      <path d="M10 8.5l6 3.5-6 3.5z" class="icon-fill" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="icon-arrow-corner" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="16.6" cy="7.4" r="1" class="icon-fill" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-tiktok" viewBox="0 0 24 24">
+      <path d="M14 3v10.6a3.4 3.4 0 1 1-2.6-3.3"/>
+      <path d="M14 3c.4 2.4 2.1 4 4.6 4.2"/>
+    </symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24">
+      <rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/>
+      <path d="M10.5 9.3l5 2.7-5 2.7z" class="icon-fill" fill="currentColor" stroke="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ ANNOUNCEMENT TICKER ============ -->
+<div class="ticker" id="ticker">
+  <span>[ Add a class alert, open-mat time, or announcement here ]</span>
+  <button class="ticker-close" id="tickerClose" aria-label="Dismiss announcement"><svg class="icon" style="width:14px;height:14px"><use href="#icon-close"/></svg></button>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <!-- REPLACE WITH LOGO — swap this span for <img src="your-logo.png" class="logo-mark" alt="BJJ at UCI logo"> -->
+      <span class="logo-mark">Logo</span>
+      BJJ <em>at UCI</em>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <!-- TODO: LINK — point this to your "How to Join" page -->
+      <a class="nav-link" href="#">How to Join</a>
+      <!-- TODO: LINK — point this to your "Meet Your Officers" page -->
+      <a class="nav-link" href="#">Meet Your Officers</a>
+      <!-- TODO: LINK — point this to your "Workouts" page -->
+      <a class="nav-link" href="#">Workouts</a>
+      <!-- TODO: LINK — point this to your "Contact Us" page -->
+      <a class="nav-link" href="#">Contact Us</a>
+      <!-- TODO: LINK — point this to your "Shop All" page -->
+      <a class="nav-link" href="#">Shop All</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="#">Join Now</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <svg class="icon" id="navToggleIcon"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ PHOTO GALLERY (moved to top; no section title, reads as part of the hero) ============ -->
+<section class="section gallery-top" id="gallery" aria-label="Club photo gallery">
+  <div class="container">
+    <div class="carousel reveal" aria-roledescription="carousel" aria-label="Club photo gallery">
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+
+          <!-- REPLACE WITH PHOTO 1 — swap .ph-media div for an <img src="..."> -->
+          <div class="slide"><div class="ph-media ph-a">
+            <svg class="icon-lg"><use href="#icon-camera"/></svg>
+            <span class="ph-label">Photo 01 — 16:9</span>
+          </div></div>
+
+          <!-- REPLACE WITH PHOTO 2 -->
+          <div class="slide"><div class="ph-media ph-b">
+            <svg class="icon-lg"><use href="#icon-camera"/></svg>
+            <span class="ph-label">Photo 02 — 16:9</span>
+          </div></div>
+
+          <!-- REPLACE WITH PHOTO 3 -->
+          <div class="slide"><div class="ph-media ph-c">
+            <svg class="icon-lg"><use href="#icon-camera"/></svg>
+            <span class="ph-label">Photo 03 — 16:9</span>
+          </div></div>
+
+          <!-- REPLACE WITH PHOTO 4 -->
+          <div class="slide"><div class="ph-media ph-a">
+            <svg class="icon-lg"><use href="#icon-camera"/></svg>
+            <span class="ph-label">Photo 04 — 16:9</span>
+          </div></div>
+
+          <!-- REPLACE WITH PHOTO 5 -->
+          <div class="slide"><div class="ph-media ph-b">
+            <svg class="icon-lg"><use href="#icon-camera"/></svg>
+            <span class="ph-label">Photo 05 — 16:9</span>
+          </div></div>
+
+          <!-- REPLACE WITH PHOTO 6 -->
+          <div class="slide"><div class="ph-media ph-c">
+            <svg class="icon-lg"><use href="#icon-camera"/></svg>
+            <span class="ph-label">Photo 06 — 16:9</span>
+          </div></div>
+
+        </div>
+      </div>
+      <button class="carousel-btn prev" aria-label="Previous photo"><svg class="icon"><use href="#icon-chevron-left"/></svg></button>
+      <button class="carousel-btn next" aria-label="Next photo"><svg class="icon"><use href="#icon-chevron-right"/></svg></button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</section>
+
+<div class="crest-divider"><div class="line"></div><div class="badge"><svg class="icon" style="width:18px;height:18px"><use href="#icon-crest"/></svg></div><div class="line"></div></div>
+
+<!-- ============ VIDEO GALLERY (moved to top; no section title, reads as part of the hero) ============ -->
+<section class="section video-top" id="videos" aria-label="Club video highlights">
+  <div class="container">
+    <div class="video-row-wrap reveal">
+      <div class="video-row" id="videoRow">
+
+        <!-- REPLACE WITH VIDEO 1 — swap .video-media div for a <video> tag -->
+        <div class="video-card"><div class="video-media">
+          <div class="video-play-ring"><svg class="icon"><use href="#icon-play"/></svg></div>
+          <span class="ph-label">Video 01 — 9:16</span>
+        </div></div>
+
+        <!-- REPLACE WITH VIDEO 2 -->
+        <div class="video-card"><div class="video-media">
+          <div class="video-play-ring"><svg class="icon"><use href="#icon-play"/></svg></div>
+          <span class="ph-label">Video 02 — 9:16</span>
+        </div></div>
+
+        <!-- REPLACE WITH VIDEO 3 -->
+        <div class="video-card"><div class="video-media">
+          <div class="video-play-ring"><svg class="icon"><use href="#icon-play"/></svg></div>
+          <span class="ph-label">Video 03 — 9:16</span>
+        </div></div>
+
+        <!-- REPLACE WITH VIDEO 4 -->
+        <div class="video-card"><div class="video-media">
+          <div class="video-play-ring"><svg class="icon"><use href="#icon-play"/></svg></div>
+          <span class="ph-label">Video 04 — 9:16</span>
+        </div></div>
+
+        <!-- REPLACE WITH VIDEO 5 -->
+        <div class="video-card"><div class="video-media">
+          <div class="video-play-ring"><svg class="icon"><use href="#icon-play"/></svg></div>
+          <span class="ph-label">Video 05 — 9:16</span>
+        </div></div>
+
+        <!-- REPLACE WITH VIDEO 6 -->
+        <div class="video-card"><div class="video-media">
+          <div class="video-play-ring"><svg class="icon"><use href="#icon-play"/></svg></div>
+          <span class="ph-label">Video 06 — 9:16</span>
+        </div></div>
+
+      </div>
+      <div class="video-row-controls">
+        <button class="carousel-btn static" id="videoPrev" aria-label="Scroll videos left"><svg class="icon"><use href="#icon-chevron-left"/></svg></button>
+        <button class="carousel-btn static" id="videoNext" aria-label="Scroll videos right"><svg class="icon"><use href="#icon-chevron-right"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="crest-divider"><div class="line"></div><div class="badge"><svg class="icon" style="width:18px;height:18px"><use href="#icon-crest"/></svg></div><div class="line"></div></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <svg class="hero-crest-bg" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="9.4" fill="none" stroke="currentColor" stroke-width="0.35"/>
+    <circle cx="12" cy="12" r="6.3" fill="none" stroke="currentColor" stroke-width="0.3"/>
+    <path d="M12 7v10M8.3 9.3l7.4 5.4M15.7 9.3l-7.4 5.4" stroke="currentColor" stroke-width="0.3"/>
+  </svg>
+  <div class="hero-inner">
+    <span class="eyebrow">UCI Club Sport &middot; Open to All Levels</span>
+    <h1>Brazilian <em>Jiu&#8209;Jitsu</em> Club at UCI</h1>
+    <p class="lede">
+      A student-run club for anyone curious about grappling — from complete beginners to
+      seasoned competitors. No experience, gi, or ego required. Just show up, learn, and roll.
+    </p>
+    <div class="hero-ctas">
+      <!-- TODO: LINK — "How to Join" page -->
+      <a class="btn btn-primary" href="#">
+        How to Join
+        <svg class="icon" style="width:16px;height:16px"><use href="#icon-arrow-corner"/></svg>
+      </a>
+      <!-- TODO: LINK — "Meet Your Officers" page -->
+      <a class="btn btn-ghost" href="#">Meet the Officers</a>
+    </div>
+  </div>
+</section>
+
+<div class="crest-divider"><div class="line"></div><div class="badge"><svg class="icon" style="width:18px;height:18px"><use href="#icon-crest"/></svg></div><div class="line"></div></div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">What We're About</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.8rem); margin-bottom:22px;">Train Hard. Roll Smart. Grow Together.</h2>
+      <p>
+        BJJ at UCI is a student-run club open to anyone curious about Brazilian Jiu-Jitsu —
+        whether you've never set foot on a mat or you're already competing. Classes focus on
+        fundamentals, live rolling, and building a community that pushes each other to improve.
+      </p>
+      <p>
+        No gi? No problem. New to campus? Even better. We keep the environment welcoming for
+        first-timers while still giving more experienced grapplers real work on the mats.
+      </p>
+    </div>
+
+    <div class="about-panel reveal">
+      <h3>Why Join?</h3>
+      <ul class="about-list">
+        <li><span class="li-mark"></span>Beginner-friendly instruction — no experience or gi required to start.</li>
+        <li><span class="li-mark"></span>A consistent group to drill and roll with, every week.</li>
+        <li><span class="li-mark"></span>A community on and off the mats — socials, meetups, and travel to tournaments.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="crest-divider"><div class="line"></div><div class="badge"><svg class="icon" style="width:18px;height:18px"><use href="#icon-crest"/></svg></div><div class="line"></div></div>
+
+<!-- ============ QUICK LINKS ============ -->
+<section class="section" id="links">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get Involved</span>
+      <h2>Everything You Need</h2>
+    </div>
+
+    <div class="quick-grid reveal">
+      <!-- TODO: LINK — "How to Join" page -->
+      <a class="quick-card" href="#">
+        <div class="qc-top"><span class="qc-num">01</span><svg class="icon qc-arrow"><use href="#icon-arrow-corner"/></svg></div>
+        <h4>How to Join</h4>
+      </a>
+      <!-- TODO: LINK — "Meet Your Officers" page -->
+      <a class="quick-card" href="#">
+        <div class="qc-top"><span class="qc-num">02</span><svg class="icon qc-arrow"><use href="#icon-arrow-corner"/></svg></div>
+        <h4>Meet Your Officers</h4>
+      </a>
+      <!-- TODO: LINK — "Workouts" page -->
+      <a class="quick-card" href="#">
+        <div class="qc-top"><span class="qc-num">03</span><svg class="icon qc-arrow"><use href="#icon-arrow-corner"/></svg></div>
+        <h4>Workouts</h4>
+      </a>
+      <!-- TODO: LINK — "Contact Us" page -->
+      <a class="quick-card" href="#">
+        <div class="qc-top"><span class="qc-num">04</span><svg class="icon qc-arrow"><use href="#icon-arrow-corner"/></svg></div>
+        <h4>Contact Us</h4>
+      </a>
+      <!-- TODO: LINK — "Shop All" page -->
+      <a class="quick-card" href="#">
+        <div class="qc-top"><span class="qc-num">05</span><svg class="icon qc-arrow"><use href="#icon-arrow-corner"/></svg></div>
+        <h4>Shop All</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="brand"><svg class="icon crest-mark"><use href="#icon-crest"/></svg>BJJ <em>at UCI</em></a>
+      <p>The Brazilian Jiu-Jitsu Club at UC Irvine. All skill levels welcome — come roll with us.</p>
+      <div class="social-row">
+        <!-- TODO: LINK — Instagram profile -->
+        <a class="social-btn" href="#" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"/></svg></a>
+        <!-- TODO: LINK — TikTok profile -->
+        <a class="social-btn" href="#" aria-label="TikTok"><svg class="icon"><use href="#icon-tiktok"/></svg></a>
+        <!-- TODO: LINK — YouTube channel -->
+        <a class="social-btn" href="#" aria-label="YouTube"><svg class="icon"><use href="#icon-youtube"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Club</h5>
+      <ul>
+        <!-- TODO: LINK -->
+        <li><a href="#">How to Join</a></li>
+        <!-- TODO: LINK -->
+        <li><a href="#">Meet Your Officers</a></li>
+        <!-- TODO: LINK -->
+        <li><a href="#">Workouts</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>More</h5>
+      <ul>
+        <!-- TODO: LINK -->
+        <li><a href="#">Contact Us</a></li>
+        <!-- TODO: LINK -->
+        <li><a href="#">Shop All</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; 2026 Brazilian Jiu-Jitsu Club at UCI.</span>
+    <span>[ Add practice schedule / location here ]</span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- announcement ticker dismiss ---- */
+  const ticker = document.getElementById('ticker');
+  document.getElementById('tickerClose').addEventListener('click', () => ticker.classList.add('hidden'));
+
+  /* ---- nav scrolled state ---- */
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive:true });
+
+  /* ---- mobile nav toggle ---- */
+  const navToggle = document.getElementById('navToggle');
+  const navToggleIcon = document.getElementById('navToggleIcon');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    navToggleIcon.querySelector('use').setAttribute('href', open ? '#icon-close' : '#icon-menu');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggleIcon.querySelector('use').setAttribute('href', '#icon-menu');
+  }));
+
+  /* ---- photo carousel ---- */
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const dotsWrap = document.getElementById('carouselDots');
+  const carouselEl = document.querySelector('.carousel');
+  let index = 0;
+  let autoplayId;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to photo ${i + 1}`);
+    dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function goTo(i){
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, di) => d.classList.toggle('active', di === index));
+  }
+  document.querySelector('.carousel-btn.prev').addEventListener('click', () => { goTo(index - 1); resetAutoplay(); });
+  document.querySelector('.carousel-btn.next').addEventListener('click', () => { goTo(index + 1); resetAutoplay(); });
+
+  function startAutoplay(){ if (prefersReduced) return; autoplayId = setInterval(() => goTo(index + 1), 5000); }
+  function resetAutoplay(){ clearInterval(autoplayId); startAutoplay(); }
+  startAutoplay();
+  carouselEl.addEventListener('mouseenter', () => clearInterval(autoplayId));
+  carouselEl.addEventListener('mouseleave', startAutoplay);
+  carouselEl.addEventListener('focusin', () => clearInterval(autoplayId));
+  carouselEl.addEventListener('focusout', startAutoplay);
+
+  let touchStartX = 0;
+  carouselEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive:true });
+  carouselEl.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40){ dx > 0 ? goTo(index - 1) : goTo(index + 1); resetAutoplay(); }
+  }, { passive:true });
+
+  /* ---- video row controls ---- */
+  const videoRow = document.getElementById('videoRow');
+  const vPrev = document.getElementById('videoPrev');
+  const vNext = document.getElementById('videoNext');
+  function cardStep(){
+    const card = videoRow.querySelector('.video-card');
+    return card ? card.getBoundingClientRect().width + 20 : 240;
+  }
+  vPrev.addEventListener('click', () => videoRow.scrollBy({ left: -cardStep() * 2, behavior: prefersReduced ? 'auto' : 'smooth' }));
+  vNext.addEventListener('click', () => videoRow.scrollBy({ left: cardStep() * 2, behavior: prefersReduced ? 'auto' : 'smooth' }));
+
+  /* ---- reveal on scroll ---- */
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !prefersReduced){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); } });
+    }, { threshold:0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+});
+</script>
+</body>
+</html>
