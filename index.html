@@ -452,6 +452,11 @@
       <rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/>
       <path d="M10.5 9.3l5 2.7-5 2.7z" class="icon-fill" fill="currentColor" stroke="none"/>
     </symbol>
+    <symbol id="icon-discord" viewBox="0 0 24 24">
+      <path d="M8 8.5c2.6-1 5.4-1 8 0M7.2 15.3c2.9 1.2 6.7 1.2 9.6 0M8.5 16.6C5.8 16 4 14.6 4 14.6c0-4.8 1.8-8.3 1.8-8.3 1.4-.9 2.7-1.2 2.7-1.2l.4 1M15.5 16.6c2.7-.6 4.5-2 4.5-2 0-4.8-1.8-8.3-1.8-8.3-1.4-.9-2.7-1.2-2.7-1.2l-.4 1"/>
+      <ellipse cx="9.3" cy="13" rx="1.1" ry="1.3" class="icon-fill" fill="currentColor" stroke="none"/>
+      <ellipse cx="14.7" cy="13" rx="1.1" ry="1.3" class="icon-fill" fill="currentColor" stroke="none"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -474,7 +479,7 @@
       <!-- Opens the "How to Join" pop-up below. To use a real separate page instead, delete data-modal and set href="your-page.html" -->
       <a class="nav-link" href="#" data-modal="join">How to Join</a>
       <a class="nav-link" href="#" data-modal="officers">Meet Your Officers</a>
-      <a class="nav-link" href="#" data-modal="workouts">Workouts</a>
+      <a class="nav-link" href="#" data-modal="workouts">Practice Schedule</a>
       <a class="nav-link" href="#" data-modal="contact">Contact Us</a>
       <a class="nav-link" href="#" data-modal="shop">Shop All</a>
       <a class="btn btn-primary btn-sm nav-cta" href="#" data-modal="join">Join Now</a>
@@ -669,7 +674,7 @@
       </a>
       <a class="quick-card" href="#" data-modal="workouts">
         <div class="qc-top"><span class="qc-num">03</span><svg class="icon qc-arrow"><use href="#icon-arrow-corner"/></svg></div>
-        <h4>Workouts</h4>
+        <h4>Practice Schedule</h4>
       </a>
       <a class="quick-card" href="#" data-modal="contact">
         <div class="qc-top"><span class="qc-num">04</span><svg class="icon qc-arrow"><use href="#icon-arrow-corner"/></svg></div>
@@ -690,12 +695,10 @@
       <a href="#top" class="brand"><svg class="icon crest-mark"><use href="#icon-crest"/></svg>BJJ Club <em>at UCI</em></a>
       <p>The Brazilian Jiu-Jitsu Club at UC Irvine. All skill levels welcome — come roll with us.<br>Affiliates: <a class="inline-link" href="https://www.elitesports.com/collections/brazilian-jiu-jitsu-bjj-gis" target="_blank" rel="noopener">Elite Sports</a></p>
       <div class="social-row">
-        <!-- TODO: LINK — Instagram profile -->
-        <a class="social-btn" href="#" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"/></svg></a>
-        <!-- TODO: LINK — TikTok profile -->
-        <a class="social-btn" href="#" aria-label="TikTok"><svg class="icon"><use href="#icon-tiktok"/></svg></a>
-        <!-- TODO: LINK — YouTube channel -->
-        <a class="social-btn" href="#" aria-label="YouTube"><svg class="icon"><use href="#icon-youtube"/></svg></a>
+        <!-- Instagram profile -->
+        <a class="social-btn" href="https://www.instagram.com/bjjclubatuci/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"/></svg></a>
+        <!-- Discord server -->
+        <a class="social-btn" href="https://discord.com/invite/c4jKXG5Gc9" target="_blank" rel="noopener" aria-label="Discord"><svg class="icon"><use href="#icon-discord"/></svg></a>
       </div>
     </div>
 
@@ -704,7 +707,7 @@
       <ul>
         <li><a href="#" data-modal="join">How to Join</a></li>
         <li><a href="#" data-modal="officers">Meet Your Officers</a></li>
-        <li><a href="#" data-modal="workouts">Workouts</a></li>
+        <li><a href="#" data-modal="workouts">Practice Schedule</a></li>
       </ul>
     </div>
 
@@ -739,19 +742,23 @@
     <ol class="modal-steps">
       <li>
         <span class="step-num">1</span>
-        <div class="step-copy"><strong>Come to an open mat</strong><span>[ Add practice days/times and room location here ]</span></div>
+        <div class="step-copy"><strong>Come To An Open Mat</strong><span style="display:block; margin-bottom:4px;">Try out our first classes for free.</span><span>Wednesdays 9&ndash;11 PM &amp; Fridays 6&ndash;8 PM &middot; Sports Studio, ARC</span></div>
       </li>
       <li>
         <span class="step-num">2</span>
-        <div class="step-copy"><strong>Fill out the club roster form</strong><span>[ Add link to your sign-up form, e.g. Google Form or UCI OrgSync ]</span></div>
+        <div class="step-copy"><strong>Club Sport Registration</strong><span>Make sure you pay the competitive club sport registration fee! &middot; <a class="inline-link" href="https://my.campusrec.uci.edu" target="_blank" rel="noopener">my.campusrec.uci.edu</a></span></div>
       </li>
       <li>
         <span class="step-num">3</span>
-        <div class="step-copy"><strong>Pay club dues</strong><span>[ Add dues amount and payment method ]</span></div>
+        <div class="step-copy"><strong>Complete Your Do Sports Easy (DSE) Registration</strong><span>Find "Brazilian Jiu Jitsu" and click "Registration." Follow all the steps on DSE and fill out all the forms. &middot; <a class="inline-link" href="https://uci.dserec.com/online/clubsports" target="_blank" rel="noopener">uci.dserec.com/online/clubsports</a></span></div>
       </li>
       <li>
         <span class="step-num">4</span>
-        <div class="step-copy"><strong>Show up and roll</strong><span>Loaner gis are available for your first two weeks.</span></div>
+        <div class="step-copy"><strong>Pay Club Dues</strong><span>$50 per quarter | Cash | Venmo: @Alexander-Garcia-601 | Zelle: (442) 327-4158</span></div>
+      </li>
+      <li>
+        <span class="step-num">5</span>
+        <div class="step-copy"><strong>Show Up And Roll</strong><span>Loaner gis are available for your first two weeks.</span></div>
       </li>
     </ol>
   </div>
@@ -766,28 +773,46 @@
     <p>The students who run practice, plan events, and keep the club going.</p>
     <div class="modal-grid">
       <div class="officer-card">
-        <!-- REPLACE WITH OFFICER PHOTO 1 — swap .officer-photo div for <img src="officer1.jpg" class="officer-photo"> -->
+        <!-- REPLACE WITH OFFICER PHOTO — swap .officer-photo div for <img src="dylan.jpg" class="officer-photo"> -->
         <div class="officer-photo">Photo</div>
-        <h4>[ Name ]</h4>
+        <h4>Dylan Truong</h4>
         <span>President</span>
       </div>
       <div class="officer-card">
-        <!-- REPLACE WITH OFFICER PHOTO 2 -->
+        <!-- REPLACE WITH OFFICER PHOTO -->
         <div class="officer-photo">Photo</div>
-        <h4>[ Name ]</h4>
+        <h4>Ethan Chang</h4>
         <span>Vice President</span>
       </div>
       <div class="officer-card">
-        <!-- REPLACE WITH OFFICER PHOTO 3 -->
+        <!-- REPLACE WITH OFFICER PHOTO -->
         <div class="officer-photo">Photo</div>
-        <h4>[ Name ]</h4>
+        <h4>Alexander Garcia</h4>
         <span>Treasurer</span>
       </div>
       <div class="officer-card">
-        <!-- REPLACE WITH OFFICER PHOTO 4 -->
+        <!-- REPLACE WITH OFFICER PHOTO -->
         <div class="officer-photo">Photo</div>
-        <h4>[ Name ]</h4>
-        <span>Events Coordinator</span>
+        <h4>Stanley Luo</h4>
+        <span>Secretary</span>
+      </div>
+      <div class="officer-card">
+        <!-- REPLACE WITH OFFICER PHOTO -->
+        <div class="officer-photo">Photo</div>
+        <h4>Josh Juarez</h4>
+        <span>Secretary</span>
+      </div>
+      <div class="officer-card">
+        <!-- REPLACE WITH OFFICER PHOTO -->
+        <div class="officer-photo">Photo</div>
+        <h4>Gabriel Sorisho</h4>
+        <span>Fundraising &amp; Outreach</span>
+      </div>
+      <div class="officer-card">
+        <!-- REPLACE WITH OFFICER PHOTO -->
+        <div class="officer-photo">Photo</div>
+        <h4>Jaydon Vasquez</h4>
+        <span>Safety Officer</span>
       </div>
     </div>
   </div>
@@ -798,13 +823,11 @@
   <div class="modal-panel">
     <button class="modal-close" aria-label="Close"><svg class="icon"><use href="#icon-close"/></svg></button>
     <span class="modal-eyebrow">Weekly Schedule</span>
-    <h3 id="modal-workouts-title">Workouts</h3>
+    <h3 id="modal-workouts-title">Practice Schedule</h3>
     <p>All levels are welcome at every session — arrive 10 minutes early to warm up.</p>
     <ul class="modal-schedule">
-      <li><strong>[ Day ]</strong><span>[ Time ] &middot; [ Location ]</span></li>
-      <li><strong>[ Day ]</strong><span>[ Time ] &middot; [ Location ]</span></li>
-      <li><strong>[ Day ]</strong><span>[ Time ] &middot; [ Location ]</span></li>
-      <li><strong>[ Day ]</strong><span>[ Time ] &middot; [ Location ]</span></li>
+      <li><strong>Wednesday</strong><span>9:00 PM &ndash; 11:00 PM &middot; Sports Studio, ARC</span></li>
+      <li><strong>Friday</strong><span>6:00 PM &ndash; 8:00 PM &middot; Sports Studio, ARC</span></li>
     </ul>
   </div>
 </div>
@@ -815,32 +838,11 @@
     <button class="modal-close" aria-label="Close"><svg class="icon"><use href="#icon-close"/></svg></button>
     <span class="modal-eyebrow">Get in Touch</span>
     <h3 id="modal-contact-title">Contact Us</h3>
-    <p>Questions about joining, schedule changes, or partnerships? Send us a note.</p>
-    <!--
-      NOTE: this is a static site, so this form has no backend yet — submitting
-      it won't send an email on its own. To make it work, either:
-        (a) point the form's "action" at a service like Formspree/Getform, or
-        (b) replace it with a plain mailto: link, e.g.
-            <a href="mailto:your-club@uci.edu">your-club@uci.edu</a>
-    -->
-    <form class="modal-form" onsubmit="alert('Connect this form to an email service like Formspree to receive submissions.'); return false;">
-      <div>
-        <label for="cf-name">Name</label>
-        <input type="text" id="cf-name" name="name" required>
-      </div>
-      <div>
-        <label for="cf-email">Email</label>
-        <input type="email" id="cf-email" name="email" required>
-      </div>
-      <div>
-        <label for="cf-message">Message</label>
-        <textarea id="cf-message" name="message" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="align-self:center;">Send Message</button>
-    </form>
-    <div class="modal-contact-info">
-      <span>[ Add club email address here ]</span>
-      <span>[ Add Instagram / GroupMe / Discord invite here ]</span>
+    <p>Questions about joining, schedule changes, or partnerships? Reach out to us directly.</p>
+    <div class="modal-contact-info" style="border-top:none; padding-top:0; margin-top:28px; gap:10px;">
+      <span>Email: <a class="inline-link" href="mailto:jiujitsu@uci.edu">jiujitsu@uci.edu</a></span>
+      <span>Instagram: <a class="inline-link" href="https://www.instagram.com/bjjclubatuci/?hl=en" target="_blank" rel="noopener">@bjjclubatuci</a></span>
+      <span>Discord: <a class="inline-link" href="https://discord.com/invite/c4jKXG5Gc9" target="_blank" rel="noopener">Join our server</a></span>
     </div>
   </div>
 </div>
